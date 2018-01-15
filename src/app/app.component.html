@@ -1,11 +1,22 @@
-<mat-card>
+<mat-toolbar color='primary'>
+  <button mat-mini-fab color='accent' (click)='sidenav.toggle()'><mat-icon>menu</mat-icon></button>
+  <h1 class='title'>{{title}}</h1>
+</mat-toolbar>
 <mat-sidenav-container>
-  <mat-sidenav #sidenav>
-
+  <mat-sidenav #sidenav mode='side'>
+    <nav>
+      <a mat-button
+      class='nav-link'
+      *ngFor='let link of links'
+      [routerLink]='link.path'
+      routerLinkActive='active'>
+      <mat-icon>{{link.icon}}</mat-icon>
+      {{link.name}}
+    </a>
+    </nav>
   </mat-sidenav>
 
-  <mat-sidenav-content></mat-sidenav-content>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
 </mat-sidenav-container>
-
-
-<router-outlet></router-outlet>
