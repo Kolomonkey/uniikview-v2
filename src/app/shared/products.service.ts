@@ -16,4 +16,9 @@ export class ProductsService {
       .map(res => res.json());
   }
 
+  load(id) {
+    return this.http.get(`${BASE_URL}${id}`)
+      .map(res => res.json());
+  }
+
 }

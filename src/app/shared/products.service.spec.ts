@@ -8,7 +8,7 @@ const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
 describe('Service: Products', () => {
   let http: HttpStub;
-  let ProductService: ProductsService;
+  let productsService: ProductsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -18,11 +18,29 @@ describe('Service: Products', () => {
     });
   });
 
-  beforeEach(() => {
-    TestBed
-  })
-
-  it('should be created', inject([ProductsService], (service: ProductsService) => {
-    expect(service).toBeTruthy();
+  beforeEach(inject([Http, ProductsService], (h: HttpStub, p: ProductsService) => {
+    http = h;
+    productsService = p;
   }));
+
+  it('#all should retrieve all products', () => {
+    const spy = spyOn(http, 'get').and.callThrough();
+
+    const expectedResponse = [{
+      sku: 'test123',
+      name: 'The best test',
+      description: 'the best test of all time'
+    }];
+
+    http.setExpectedResponse(expectedResponse);
+
+    productsService.load(expectedResponse)
+      .subscribe(response => {
+        expect(response).toEqual(expectedResponse);
+        expect(http.get).toHaveBeenCalled();
+        expect(spy.calls.mostRecent().args[0]).toContain('/products');
+      })
+
+
+  })
 });

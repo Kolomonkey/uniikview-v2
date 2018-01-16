@@ -2,6 +2,8 @@ import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
+import { ProductDetailComponent } from './products/product-detail/product-detail.component';
+import { ProductListComponent } from './products/product-list/product-list.component';
 import { AppMaterialModule } from './app-material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppRoutingModule } from './app-routing.module';
@@ -20,7 +22,9 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         HomeComponent,
-        ProductsComponent
+        ProductsComponent,
+        ProductDetailComponent,
+        ProductListComponent
       ],
       imports: [
         AppRoutingModule,

@@ -1,5 +1,5 @@
 import { Http, Response, ResponseOptions } from '@angular/http';
-import { Observable } from 'rxjs/observable';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
 export class HttpStub {
