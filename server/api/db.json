@@ -1,0 +1,21 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "sku": "nl-194",
+      "name": "Necklace",
+      "description": "A very pretty neckla",
+    },
+    {
+      "id": 2,
+      "sku": "bc-62",
+      "name": "Bracelet",
+      "description": "A very pretty bracelet",
+    },
+    {
+      "id": 3,
+      "sku": "jn-24",
+      "name": "Journalsdfgsdfg",
+      "description": "A very useful journal",
+    }
+  ]}

@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
@@ -6,8 +6,15 @@ import { AppMaterialModule } from './app-material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppRoutingModule } from './app-routing.module';
 import { APP_BASE_HREF } from '@angular/common';
+import { DebugElement } from '@angular/core/src/debug/debug_node';
+import { By } from '@angular/platform-browser';
 
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+  let de: DebugElement;
+  let links: DebugElement[];
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
@@ -23,20 +30,37 @@ describe('AppComponent', () => {
       providers: [{provide: APP_BASE_HREF, useValue: '/'}]
     }).compileComponents();
   }));
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    de = fixture.debugElement;
+    fixture.detectChanges();
+
+    links = de.queryAll(By.css('nav a'))
+  });
+
   it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   }));
   it(`should have as title 'Master Detail View'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('Master Detail View');
+    expect(component.title).toEqual('Master Detail View');
   }));
   it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Master Detail View');
+    const h1 = de.query(By.css('h1'));
+    expect(h1.nativeElement.innerText).toBe('Master Detail View');
   }));
+
+  it('should be two links', () => {
+    expect(links.length).toBe(2);
+  });
+
+  it('should link to `home`', () => {
+    const link = links.find(l => l.properties.href === '/home');
+    expect(link).toBeDefined();
+  });
+
+  it('should link to `products`', () => {
+    const link = links.find(l => l.properties.href === '/products');
+    expect(link).toBeDefined();
+  })
 });
