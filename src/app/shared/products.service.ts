@@ -21,4 +21,18 @@ export class ProductsService {
       .map(res => res.json());
   }
 
+  create(product: Product) {
+    return this.http.post(`${BASE_URL}`, JSON.stringify(product), HEADER)
+      .map(res => res.json());
+  }
+
+  update(product: Product) {
+    return this.http.patch(`${BASE_URL}${product.id}`, JSON.stringify(product), HEADER)
+      .map(res => res.json());
+  }
+
+  delete(product: Product) {
+    return this.http.delete(`${BASE_URL}${product.id}`)
+      .map(res => res.json())
+  }
 }

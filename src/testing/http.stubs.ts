@@ -12,4 +12,12 @@ setExpectedResponse(response) {
 get(url) {
     return Observable.of(this.expectedResponse);
 }
+
+post(url, data) {
+    return Observable.of(this.expectedResponse);
+}
+
+patch(url, data) {
+    return Observable.of(this.expectedResponse);
+}
 }

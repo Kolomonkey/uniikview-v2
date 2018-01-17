@@ -13,7 +13,7 @@ export class ProductsComponent implements OnInit {
   constructor(private ps: ProductsService) { }
 
   ngOnInit() {
-    this.getProducts()
+    this.getProducts();
   }
 
   getProducts() {
