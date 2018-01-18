@@ -20,4 +20,8 @@ post(url, data) {
 patch(url, data) {
     return Observable.of(this.expectedResponse);
 }
+
+delete(url) {
+    return Observable.of(this.expectedResponse);
+}
 }

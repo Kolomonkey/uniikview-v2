@@ -105,6 +105,27 @@ describe('Service: Products', () => {
         expect(spy.calls.mostRecent().args[0]).toContain('/products/5');
         expect(spy.calls.mostRecent().args[1]).toEqual(JSON.stringify(expectedResponse));
         expect(spy.calls.mostRecent().args[2]).toEqual(HEADER);
-      })
-  })
+      });
+  });
+
+  it('#delete should `DELETE` a product', () => {
+    const spy = spyOn(http, 'delete').and.callThrough();
+
+    const expectedResponse = {
+      id: 7,
+      sku: 'test-123',
+      name: 'The best test',
+      description: 'The best of all time'
+    };
+
+    http.setExpectedResponse(expectedResponse);
+
+    productsService.delete(expectedResponse)
+      .subscribe(response => {
+        expect(response).toEqual(expectedResponse);
+        expect(http.delete).toHaveBeenCalled();
+        expect(spy.calls.mostRecent().args[0]).toContain('/products/7');
+      });
+  });
+
 });
