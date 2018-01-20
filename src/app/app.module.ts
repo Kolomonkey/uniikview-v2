@@ -13,6 +13,8 @@ import { ProductsComponent } from './products/products.component';
 import { ProductsService } from './shared/products.service';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
+import { TestComponent } from './test/test.component';
+import { TodoService } from './test/todo.service';
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
     HomeComponent,
     ProductsComponent,
     ProductListComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,7 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
     BrowserAnimationsModule,
     HttpModule
   ],
-  providers: [ProductsService],
+  providers: [ProductsService, TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

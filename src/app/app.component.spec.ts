@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { APP_BASE_HREF } from '@angular/common';
 import { DebugElement } from '@angular/core/src/debug/debug_node';
 import { By } from '@angular/platform-browser';
+import { TestComponent } from './test/test.component';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -24,7 +25,8 @@ describe('AppComponent', () => {
         HomeComponent,
         ProductsComponent,
         ProductDetailComponent,
-        ProductListComponent
+        ProductListComponent,
+        TestComponent
       ],
       imports: [
         AppRoutingModule,

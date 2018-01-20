@@ -14,7 +14,7 @@ describe('ProductsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ ProductsComponent, ProductListComponent],
       providers: [
-        {provide: ProductsService, useClass: ProductsServiceStub}
+        {provide: ProductsService}
       ]
     })
     .compileComponents();
@@ -32,4 +32,13 @@ describe('ProductsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Products variable should be set to Products list recieved from database', () => {
+    spyOn(ProductsService, 'all')
+
+
+    component.ngOnInit();
+
+
+  })
 });
