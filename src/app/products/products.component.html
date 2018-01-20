@@ -1,5 +1,16 @@
+<div class='container'>
+<div class='row'>
 <app-product-list
-  [products]='products'>
+  class='col'
+  [products]='products'
+  (selected)='selectProduct($event)'>
 
 </app-product-list>
-<h1>Hi</h1>
+
+<app-product-detail
+  class='col'
+  [selectedProduct]='selectedProduct'>
+
+</app-product-detail>
+</div>
+</div>

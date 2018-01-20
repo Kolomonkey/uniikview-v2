@@ -1,0 +1,13 @@
+:host >>> mat-list-item:hover {
+    cursor: pointer;
+    background: whitesmoke;
+  }
+  
+  div {
+    display:flex;
+    margin:auto;
+  }
+  .col {
+    width: 49vw;
+    margin: 10px;
+  }
