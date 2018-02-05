@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter} from '@angular/core';
 import { Product } from '../../shared';
 
 @Component({
@@ -9,4 +9,6 @@ import { Product } from '../../shared';
 export class ProductDetailComponent {
 
   @Input() selectedProduct: Product;
+  @Input() productForm;
+  @Output() submitForm = new EventEmitter();
 }

@@ -10,4 +10,5 @@ export class ProductListComponent {
 
   @Input() products: Product[];
   @Output() selected = new EventEmitter();
+  @Output() delete = new EventEmitter();
 }

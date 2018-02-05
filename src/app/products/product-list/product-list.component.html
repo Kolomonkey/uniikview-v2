@@ -3,7 +3,7 @@
     <mat-list-item *ngFor='let product of products' (click)='selected.emit(product)'>
         <h3 matLine>{{product.name}}</h3>
         <p matLine>{{product.description}}</p>
-        <button mat-icon-button><mat-icon>clear</mat-icon></button>
+        <button mat-icon-button (click)='delete.emit(product);$event.stopImmediatePropagation();'><mat-icon>clear</mat-icon></button>
     </mat-list-item>
 </mat-list>
 </mat-card>

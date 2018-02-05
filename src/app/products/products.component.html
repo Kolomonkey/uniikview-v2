@@ -3,13 +3,16 @@
 <app-product-list
   class='col'
   [products]='products'
-  (selected)='selectProduct($event)'>
+  (selected)='selectProduct($event)'
+  (delete)='deleteProduct($event)'>
 
 </app-product-list>
 
 <app-product-detail
   class='col'
-  [selectedProduct]='selectedProduct'>
+  [selectedProduct]='selectedProduct'
+  [productForm]='productForm'
+  (submitForm)='saveForm($event)'>
 
 </app-product-detail>
 </div>

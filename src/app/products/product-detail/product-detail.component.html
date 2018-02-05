@@ -1,5 +1,12 @@
 <mat-card>
   <h2 *ngIf='!selectedProduct; else name'>Select a product</h2>
   <ng-template #name><h2>{{selectedProduct.name}}</h2></ng-template>
+
+  <form [formGroup]='productForm' (submit)='submitForm.emit(productForm.value)'>
+    <mat-form-field><input matInput placeholder='Sku' formControlName='sku' required></mat-form-field>
+    <mat-form-field><input matInput placeholder='Name' formControlName='name' required></mat-form-field>
+    <mat-form-field><textarea matInput matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5" placeholder='Description' formControlName='description' required></textarea></mat-form-field>
+    <button mat-raised-button color='primary' type='submit' [disabled]='!productForm.valid'>Submit</button>
+  </form>
   
 </mat-card>

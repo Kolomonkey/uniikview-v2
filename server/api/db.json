@@ -4,7 +4,7 @@
       "id": 1,
       "sku": "nl-194",
       "name": "Necklace",
-      "description": "A very pretty neckla"
+      "description": "A very pretty necklace"
     },
     {
       "id": 2,
@@ -14,8 +14,9 @@
     },
     {
       "id": 3,
-      "sku": "jn-24",
-      "name": "Journalsdfgsdfg",
-      "description": "A very useful journal"
+      "sku": ":D",
+      "name": "Hello",
+      "description": "Hola"
     }
-  ]}
+  ]
+}

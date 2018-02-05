@@ -3,7 +3,7 @@ import { Http, Headers} from '@angular/http';
 import { Product } from './product';
 import 'rxjs/add/operator/map';
 
-const BASE_URL = 'http://localhost:3000/products/'
+const BASE_URL = 'http://localhost:3000/products/';
 const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
 @Injectable()

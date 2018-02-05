@@ -11,6 +11,7 @@ import { APP_BASE_HREF } from '@angular/common';
 import { DebugElement } from '@angular/core/src/debug/debug_node';
 import { By } from '@angular/platform-browser';
 import { TestComponent } from './test/test.component';
+import { ReactiveFormsModule, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -31,7 +32,8 @@ describe('AppComponent', () => {
       imports: [
         AppRoutingModule,
         AppMaterialModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        ReactiveFormsModule
       ],
       providers: [{provide: APP_BASE_HREF, useValue: '/'}]
     }).compileComponents();
